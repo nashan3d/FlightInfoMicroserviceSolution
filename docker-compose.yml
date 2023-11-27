@@ -1,0 +1,16 @@
+version: '3.4'
+
+networks:
+    backend:
+
+services:
+  flightinfo.api:
+    container_name: flightinfo-api
+    image: ${DOCKER_REGISTRY-}flightinfoapi
+    build:
+      context: .
+      dockerfile: FlightInfo.API/Dockerfile
+    networks:
+      - backend
+    ports:
+      - 8002:80
